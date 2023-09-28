@@ -28,7 +28,7 @@ Before diving into the projects, make sure you have the necessary prerequisites 
 Clone this repository to your local machine to get started:
 
 ```shell
-git clone https://github.com/your-repo-url.git
+git clone https://github.com/Bishopafl/laravel_api
 ```
 
 ## Project Overview
