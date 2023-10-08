@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\API\V1\CompleteTaskController;
-use App\Http\Controllers\API\V1\TaskController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Auth\LogoutController;
 use App\Http\Controllers\API\Auth\RegisterController;
+use App\Http\Controllers\API\V1\CompleteTaskController;
+use App\Http\Controllers\API\V1\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,15 +20,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 /**
- * API V1 Routes
+ * API Routes
  */
-Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
-    Route::apiResource('/tasks', TaskController::class);
-    Route::patch('/tasks/{task}/complete', CompleteTaskController::class);
-});
+require __DIR__ . '/API/v1.php';
+require __DIR__ . '/API/v2.php';
+
 
 Route::prefix('auth')->group(function() {
-    Route::post('/login', LoginController::class);
+    Route::post('/login', LoginController::class)->name('login');
     Route::post('/logout', LogoutController::class)->middleware('auth:sanctum');
     Route::post('/register', RegisterController::class);
 });
